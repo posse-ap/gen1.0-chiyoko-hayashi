@@ -12,9 +12,17 @@ APコンテナにログイン
 rm -fr ./*
 composer create-project --prefer-dist laravel/laravel blog "6.*"
 mv ./blog/* ./
+
 mv ./blog/.* ./
+※若干エラーが出ますがOKです
+　mv: cannot move './blog/.' to './.': Device or resource busy
+　mv: cannot move './blog/..' to './..': Device or resource busy
+
 rm -fr ./blog
 ```
+ブラウザで
+http://localhost/
+にアクセスして、Laravelの画面が表示されたらOK
 
 .envファイルを修正する
 ※修正はdocker-compose.ymlを見て適切な値に変えてね
@@ -24,6 +32,7 @@ APコンテナにログイン
 ```php artisan migrate```
 
 ```
+※実行結果がこんな感じになればOK
 Migration table created successfully.
 Migrating: 2014_10_12_000000_create_users_table
 Migrated:  2014_10_12_000000_create_users_table (0.06 seconds)
