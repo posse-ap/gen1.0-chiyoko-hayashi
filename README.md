@@ -23,6 +23,8 @@ rm -fr ./blog
 ブラウザで
 http://localhost/
 にアクセスして、Laravelの画面が表示されたらOK
+![image](https://user-images.githubusercontent.com/62699348/111896670-a08baf80-8a5e-11eb-8ff5-75f749928172.png)
+
 
 .envファイルを修正する
 ※修正はdocker-compose.ymlを見て適切な値に変えてね
