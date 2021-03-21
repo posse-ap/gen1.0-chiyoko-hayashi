@@ -9,6 +9,7 @@ template-3rd-study-envに移動し、
 ```docker-compose up -d```
 APコンテナにログイン
 ```
+rm -fr ./*
 composer create-project --prefer-dist laravel/laravel blog "6.*"
 mv ./blog/* ./
 mv ./blog/.* ./
