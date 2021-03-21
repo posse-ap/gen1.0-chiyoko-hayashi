@@ -1,7 +1,12 @@
 ## Laravelのインストール
 
-aaaaaa
+APコンテナにログインする
+```
 composer create-project --prefer-dist laravel/laravel blog "6.*"
+mv blog/* ./
+mv blog/.* ./
+```
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
