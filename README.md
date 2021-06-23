@@ -30,7 +30,7 @@ http://localhost/
 ※修正はdocker-compose.ymlを見て適切な値に変えてね
 　どうしてもわからない人はgithubの.env.exampleを見ましょう
 
-APコンテナにログイン
+appコンテナにログイン
 ```php artisan migrate```
 
 ```
