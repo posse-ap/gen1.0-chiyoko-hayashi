@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// リスト2-8
-Route::get('hello','HelloController@index');
+// リスト2-10
+Route::get('hello/{id?}/{pass?}','HelloController@index');
