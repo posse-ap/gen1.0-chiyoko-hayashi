@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// リスト3-2
+Route::get('hello', function () {
+    return view('hello.index');
 });
-
-// リスト2-16
-Route::get('hello','HelloController@index');
