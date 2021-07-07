@@ -13,3 +13,6 @@
 
 // リスト3-11
 Route::get('hello', 'HelloController@index');
+
+// リスト3-16
+Route::post('hello', 'HelloController@post');
