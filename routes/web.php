@@ -11,5 +11,5 @@
 |
 */
 
-// リスト3-9
-Route::get('hello/{id?}', 'HelloController@index');
+// リスト3-11
+Route::get('hello', 'HelloController@index');
