@@ -17,7 +17,7 @@ services:
     build:
       context: ./app
     volumes:
-      - ../chiyoko-3rd-study:/work/backend
+      - ../ph3-quizy-develop:/work/backend
     depends_on: ["mysql"]
   nginx:
     build:
@@ -25,5 +25,5 @@ services:
     ports:
       - 80:80
     volumes:
-      - ../chiyoko-3rd-study:/work/backend
+      - ../ph3-quizy-develop:/work/backend
     depends_on: ["phpfpm"]
