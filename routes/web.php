@@ -20,5 +20,6 @@ Route::post('hello', 'HelloController@post');
 // リスト4-3
 use \App\Http\Middleware\HelloMiddleware;
 
+// リスト4-13
 Route::get('hello', 'HelloController@index')
-    ->middleware(HelloMiddleware::class);
+    ->middleware('helo');
