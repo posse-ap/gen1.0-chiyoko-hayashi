@@ -19,7 +19,7 @@ class QuizyPage
         $content = $response->content();
 
         $pattern = '/<middleware>(.*)<\/middleware>/i';
-        $replace = '<a href="http://localhost/quiz/$1">$1</a>';
+        $replace = '<a href="http://localhost/quiz/$1">';
         $content = preg_replace($pattern, $replace, $content);
 
         $response->setContent($content);
