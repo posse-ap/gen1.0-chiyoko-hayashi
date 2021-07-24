@@ -23,3 +23,7 @@ use \App\Http\Middleware\HelloMiddleware;
 // リスト4-13
 Route::get('hello', 'HelloController@index')
     ->middleware('helo');
+
+//リスト5-10
+Route::get('hello/add', 'HelloController@add');
+Route::post('hello/add', 'HelloController@create');
