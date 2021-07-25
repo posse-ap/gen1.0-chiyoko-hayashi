@@ -35,3 +35,6 @@ Route::post('hello/edit', 'HelloController@update');
 // リスト5-16
 Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
+
+// リスト5-20
+Route::get('hello/show', 'HelloController@show');
