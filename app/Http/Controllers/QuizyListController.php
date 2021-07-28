@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class QuizyController extends Controller
+class QuizyListController extends Controller
 {
     public function index(Request $request)
     {
