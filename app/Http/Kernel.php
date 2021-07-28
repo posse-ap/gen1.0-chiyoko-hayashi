@@ -41,12 +41,6 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
-        // quizyミドルウェアグループの登録
-        'quizy' => [
-            \App\Http\Middleware\QuizyPage::class,
-            \App\Http\Middleware\QuizyQuiz::class,
-        ]
     ];
 
     /**

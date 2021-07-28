@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// QuizyControllerの設定
-// リスト4-3参照
-use \App\Http\Middleware\QuizyMiddleware;
-
-// リスト4-13参照
-Route::get('quizy', 'QuizyController@index')
-    ->middleware('quizy');
+Route::get('/quiz', function () {
+    return view('quizy.index');
+});
