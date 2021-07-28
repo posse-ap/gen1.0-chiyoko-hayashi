@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/quiz', function () {
-    return view('quizy.index');
-});
+Route::get('/quiz', 'QuizyController@index');
