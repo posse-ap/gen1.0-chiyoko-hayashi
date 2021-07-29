@@ -2,6 +2,7 @@
 
 // namespace Database\Seeders;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 
 class DatabaseSeeder extends Seeder
@@ -10,6 +11,5 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ChoicesTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
-        // $this->call(TestTableSeeder::class);
     }
 }
