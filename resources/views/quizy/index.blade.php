@@ -1,4 +1,4 @@
-@extends('layouts.quizList')
+@extends('layouts.quizyList')
 
 @section('title','Quizy問題')
 @section('menubar')

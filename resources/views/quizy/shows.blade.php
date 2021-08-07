@@ -20,7 +20,3 @@
     </div>
 <script src="{{ asset('js/quizy.js') }}"></script>
 @endsection
-
-@section('footer')
-copyright 2020 tuyano.
-@endsection
