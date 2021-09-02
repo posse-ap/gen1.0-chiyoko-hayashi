@@ -7,8 +7,9 @@
 @endsection
 
 @section('content')
-<a href="http://localhost/quiz/1">ガチで東京の人しか解けない！ #東京の難読地名クイズ</a><br>
-<a href="http://localhost/quiz/2">広島県民なら解けて当然？ #広島県の難読地名クイズ</a>
+@foreach ($questions as $question)
+<a href="http://localhost/quiz/{{$question->id}}">{{$question->name}}</a>
+@endforeach
 @endsection
 
 @section('footer')

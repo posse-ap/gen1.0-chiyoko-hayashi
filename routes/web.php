@@ -17,6 +17,4 @@ Route::get('/', function () {
 
 Route::get('/quiz', 'QuizyListController@index');
 
-Route::get('/quiz/{id?}', function () {
-    return view('quizy.shows');
-});
+Route::get('/quiz', 'QuizyListController@show');
