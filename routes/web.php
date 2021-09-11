@@ -38,3 +38,6 @@ Route::post('hello/del', 'HelloController@remove');
 
 // リスト5-20
 Route::get('hello/show', 'HelloController@show');
+
+// リスト6-4
+Route::get('person', 'PersonController@index');
