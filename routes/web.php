@@ -49,3 +49,7 @@ Route::post('person/find', 'PersonController@search');
 //リスト6-21
 Route::get('person/add', 'PersonController@add');
 Route::post('person/add', 'PersonController@create');
+
+//リスト6-24
+Route::get('person/edit', 'PersonController@edit');
+Route::post('person/edit', 'PersonController@update');
