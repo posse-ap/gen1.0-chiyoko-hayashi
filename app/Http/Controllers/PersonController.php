@@ -37,9 +37,14 @@ class PersonController extends Controller
     {
         $this->validate($request, Person::$rules);
         $person = new Person;
-        $form = $request->all();
-        unset($form['_token']);
-        $person->fill($form)->save();
+        // $form = $request->all();
+        // unset($form['_token']);
+        // $person->fill($form)->save();
+        // 上の三行はこっちでも同じ意味↓
+        $person->name = $request->name;
+        $person->mail = $request->mail;
+        $person->age = $request->age;
+        $person->save();
         return  redirect('/person');
     }
 }
