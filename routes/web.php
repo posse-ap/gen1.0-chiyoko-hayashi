@@ -53,3 +53,7 @@ Route::post('person/add', 'PersonController@create');
 //リスト6-24
 Route::get('person/edit', 'PersonController@edit');
 Route::post('person/edit', 'PersonController@update');
+
+//リスト6-27
+Route::get('person/del', 'PersonController@delete');
+Route::post('person/del', 'PersonController@remove');
