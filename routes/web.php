@@ -45,3 +45,7 @@ Route::get('person', 'PersonController@index');
 // リスト6-9
 Route::get('person/find', 'PersonController@find');
 Route::post('person/find', 'PersonController@search');
+
+//リスト6-21
+Route::get('person/add', 'PersonController@add');
+Route::post('person/add', 'PersonController@create');
