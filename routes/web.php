@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::get('/quiz', 'QuizyListController@index');
 
 Route::get('/quiz', 'QuizyListController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
