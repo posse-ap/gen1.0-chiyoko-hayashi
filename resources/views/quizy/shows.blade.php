@@ -16,7 +16,6 @@
             <li id="answerbox_1" class="answerbox">
             <span id="answertext_1"></span><br>
             <span>正解は「{{$answer}}」です！</span>
-                
             </li>
         </ul>
     </div>
