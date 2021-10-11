@@ -1,6 +1,6 @@
 @extends('layouts.quizyPage')
 
-@section('title','ガチで東京の人しか解けない！ #東京の難読地名クイズ')
+@section('title',$question_name)
 
 @section('content')
 <div class="main">
@@ -15,7 +15,7 @@
 
             <li id="answerbox_1" class="answerbox">
             <span id="answertext_1"></span><br>
-            <span>正解は「{{$answer}}」です！</span>
+            <span>正解は「たかなわ」です！</span>
             </li>
         </ul>
     </div>

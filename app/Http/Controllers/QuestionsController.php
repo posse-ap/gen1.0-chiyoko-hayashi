@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
+use App\Choice;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
+
 
 class QuestionsController extends Controller
 {
     public function index(Request $request)
     {
-    $questions =DB::table('questions')->get();
-    return view('quizy.index', ['questions' => $questions]);
+        $questions = question::all();
+        return view('quizy.index',['questions' => $questions]);
     }
 
-    public function show(Request $request)
+    public function show($id)
     {
-    $id = $request->id;
-    $choices =DB::table('choices')->where('question_id', $id)->get();
-    $answer =DB::table('choices')->where('question_id', $id)->where('valid', 1)->get(['name']);
-    return view('quizy.shows', ['choices' => $choices, 'answer' => $answer]);
+        $question_name = question::find($id)->name;
+        $choices = question::find($id)->choices;
+        return view('quizy.shows',compact('question_name','choices'));
     }
 }

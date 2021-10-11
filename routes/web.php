@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('rest', 'RestappController');
+// Route::resource('quiz', 'RestappController');
+Route::get('quiz', 'QuestionsController@index')->name('questions');
+Route::get('quiz/{id}', 'QuestionsController@show')->name('choices');
 
 Auth::routes();
 
