@@ -22,3 +22,8 @@ Route::get('quiz/{id}', 'QuestionsController@show')->name('choices');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'Admin\QuizyController@index')->name('home');
+Route::get('/admin/{id}', 'Admin\QuizController@show')->name('list');
+// Route::get('/admin/{id}/edit?choices_id=1', 'Q/Admin/uizController@index')->name('home');
+// Route::get('/complete', '/Admin/QuizController@index')->name('home');

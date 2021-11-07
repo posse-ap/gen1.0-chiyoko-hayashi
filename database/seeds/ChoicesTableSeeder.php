@@ -13,7 +13,7 @@ class ChoicesTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'question_id' => '1',
+            'big_question_id' => '1',
             'name' => 'たかなわ',
             'valid' => '1',
 
@@ -21,7 +21,7 @@ class ChoicesTableSeeder extends Seeder
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => '1',
+            'big_question_id' => '1',
             'name' => 'たかわ',
             'valid' => '0',
 
@@ -29,7 +29,7 @@ class ChoicesTableSeeder extends Seeder
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => '1',
+            'big_question_id' => '1',
             'name' => 'こうわ',
             'valid' => '0',
 
@@ -37,7 +37,7 @@ class ChoicesTableSeeder extends Seeder
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => '2',
+            'big_question_id' => '3',
             'name' => 'むこうひら',
             'valid' => '0',
 
@@ -45,7 +45,7 @@ class ChoicesTableSeeder extends Seeder
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => '2',
+            'big_question_id' => '3',
             'name' => 'むきひら',
             'valid' => '0',
 
@@ -53,7 +53,7 @@ class ChoicesTableSeeder extends Seeder
         DB::table('choices')->insert($param);
 
         $param = [
-            'question_id' => '2',
+            'big_question_id' => '3',
             'name' => 'むかいなだ',
             'valid' => '1',
 
