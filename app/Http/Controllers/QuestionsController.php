@@ -20,7 +20,24 @@ class QuestionsController extends Controller
     {
         $questions = Question::find($id);
         $question_name = Question::find($id)->name;
-        // $choices = BigQuestion::find($id)->choices;
-        return view('quizy.shows',compact('questions','question_name'));
+        $choices = BigQuestion::find($id)->choices;
+        // dd($choices);
+        $answer = $choices[0]->name;
+        $shuffled = $choices->shuffle();
+        // dd($shuffled);
+        // shuffledからnameがたかなわ（answer）のものを探して、その配列のインデックス番号をとってきて、それをvalidに置き換える
+        // validカラムをシャッフルする前は正解は1個目です
+        // 高輪が2番目だったら、validの値を2にするようにする
+        foreach($shuffled as $index => $answer){
+            if($answer->name == $choices[0]->name){
+                $valid = $index;
+            }
+        }
+
+        foreach($shuffled as $answer){
+            $answer->valid = $valid;
+        }
+        
+        return view('quizy.shows',compact('questions','question_name','shuffled'));
     }
 }

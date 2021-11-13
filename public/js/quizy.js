@@ -1,11 +1,14 @@
 console.log('hello');
 
+
 // 解答クリック時の処理
 // question_id：問題番号、1問目の場合は[1]を受け取る
 // selection_id：回答番号、選択された選択肢の番号を受け取る
 // valid_id：正解番号、正解の選択肢の番号を受け取る
 function check(question_id, selection_id, valid_id) {
-    
+    console.log(question_id);
+    console.log(selection_id);
+    console.log(valid_id);
     // クリック無効化
     var answerlists = document.getElementsByName('answerlist_' + question_id);
     answerlists.forEach(answerlist => {
