@@ -24,19 +24,6 @@
             margin-bottom: 0;
             color: #161616;
         }
-
-        .quiz h1:before{
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 500px;/*線の上下位置*/
-            display: inline-block;
-            width: 120px;/*線の長さ*/
-            height: 2px;/*線の太さ*/
-            transform: translateX(-220%);/*位置調整*/
-            background-color: #00ab36;/*線の色*/
-            border-radius: 2px;/*線の丸み*/
-        }
         
         .quiz img {
             width: 100%;
@@ -103,8 +90,10 @@
     </head>
     <body>
         <h1>@yield('title')</h1>
-        <div class="content">
+        <div class="main">
+            <div class="content">
             @yield('content')
+            </div>
         </div>
     </body>
     </html>

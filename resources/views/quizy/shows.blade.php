@@ -1,24 +1,30 @@
 @extends('layouts.quizyPage')
 
-@section('title',$question_name)
+@section('title',$question->name)
+
 
 @section('content')
-<div class="main">
-    @foreach ($questions->big_questions as $big_question)
-    <!-- ここから1問目 -->
-    <div class="quiz">
-        <h1>{{$big_question->id}}. この地名はなんて読む？</h1>
-        <img src="img/1.png">
-        <ul>
-            @foreach ($shuffled as $choice)
-            <li id="answerlist_{{$big_question->id}}_{{$loop->iteration}}" name="answerlist_{{$big_question->question_id}}" class="answerlist" onclick="check({{$big_question->question_id}}, {{$loop->iteration}}, {{$choice->valid+1}})">{{$choice->name}}</li>
-            @endforeach
-            <li id="answerbox_{{$big_question->id}}" class="answerbox">
-            <span id="answertext_{{$big_question->id}}"></span><br>
-            <span>{{$big_question->explanation}}</span>
-        </li>
-        </ul>
-    </div>
+    @foreach ($question->big_questions as $big_question)
+        <div class="quiz">
+            <h1>{{$big_question->id}}. {{$big_question->sentence}}</h1>
+            <img src="/img/{{ ($big_question->image) }}">
+            <ul>
+                @foreach ($big_question->choices->shuffle() as $choice)
+                    <li 
+                        id="answerlist_{{$big_question->id}}_{{$loop->iteration}}"
+                        class="answerlist_{{$big_question->id}}"
+                        data-valid="{{$choice->valid}}"
+                        onclick="check(event)"
+                    >
+                        {{$choice->name}}
+                    </li>
+                @endforeach
+            </ul>
+            <div id="answerbox_{{$big_question->id}}" class="answerbox">
+                <div id="answertext_{{$big_question->id}}"></div>
+                <div>{{$big_question->explanation}}</div>
+            </div>
+        </div>
     @endforeach
 <script src="{{ asset('js/quizy.js') }}"></script>
 @endsection

@@ -13,52 +13,52 @@ class ChoicesTableSeeder extends Seeder
     public function run()
     {
         $param = [
+            [
             'big_question_id' => '1',
-            'name' => 'たかなわ',
-            'valid' => '1',
-
-        ];
-        DB::table('choices')->insert($param);
-
-        $param = [
+            'name' => '山田涼介',
+            'valid' => true,
+            ],
+            [
             'big_question_id' => '1',
-            'name' => 'たかわ',
-            'valid' => '1',
-
-        ];
-        DB::table('choices')->insert($param);
-
-        $param = [
+            'name' => '山田亮介',
+            'valid' => false,
+            ],
+            [
             'big_question_id' => '1',
-            'name' => 'こうわ',
-            'valid' => '1',
-
-        ];
-        DB::table('choices')->insert($param);
-
-        $param = [
-            'big_question_id' => '3',
-            'name' => 'むこうひら',
-            'valid' => '1',
-
-        ];
-        DB::table('choices')->insert($param);
-
-        $param = [
+            'name' => '山田良輔',
+            'valid' => false,
+            ],
+            [
+            'big_question_id' => '2',
+            'name' => '記憶屋',
+            'valid' => true,
+            ],
+            [
+            'big_question_id' => '2',
+            'name' => '奇跡屋',
+            'valid' => false,
+            ],
+            [
+            'big_question_id' => '2',
+            'name' => '探偵屋',
+            'valid' => false,
+            ],
+            [            
             'big_question_id' => '3',
             'name' => 'むきひら',
-            'valid' => '1',
-
-        ];
-        DB::table('choices')->insert($param);
-
-        $param = [
+            'valid' => true,
+            ],
+            [
             'big_question_id' => '3',
             'name' => 'むかいなだ',
-            'valid' => '1',
-
+            'valid' => false,
+            ],
+            [
+            'big_question_id' => '3',
+            'name' => 'むこうなだ',
+            'valid' => false,
+            ],
         ];
         DB::table('choices')->insert($param);
-
     }
 }

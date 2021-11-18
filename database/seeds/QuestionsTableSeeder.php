@@ -13,7 +13,7 @@ class QuestionsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'name' => '東京の難読地名クイズ'
+            'name' => 'やまだりょうすけクイズ'
         ];
         DB::table('questions')->insert($param);
 

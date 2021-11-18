@@ -17,6 +17,7 @@ class CreateBigQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('question_id');
             $table->string('image');
+            $table->string('sentence');
             $table->string('explanation');
         });
     }

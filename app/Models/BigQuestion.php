@@ -10,4 +10,10 @@ class BigQuestion extends Model
     {
         return $this->hasMany(Choice::class);
     }
+
+    protected $fillable = [
+
+        'image',
+
+        ];
 }
