@@ -10,13 +10,14 @@
 <body>
     <div id="app">
         <h1>My Todos</h1>
-        <ul>
+        <ul v-if="todos.length">
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.isDone">
                 <span :class="{done: todo.isDone}">{{ todo.title }}</span>
                 <span @click="deleteItem(index)" class="command">[x]</span>
             </li>
         </ul>
+        <p v-else>No ToDo!</p>
         <form @submit.prevent="addItem">
             <input type="text" v-model="newItem">
             <input type="submit" value="add">
