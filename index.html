@@ -17,8 +17,11 @@
         <ul>
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.isDone">
-                <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+                <span :class="{done: todo.isDone}">{{todo.title}}</span>
+                    <input type="text" v-model="editComment" :value="todo.title" v-show="showEditItem">
+                    <button @click="editItem(todo)" v-show="showEditItem">Save</button>
                 <span @click="deleteItem(index)" class="command">[x]</span>
+                <span @click="showEditItem()" class="command">[edit]</span>
             </li>
         </ul>
         <p v-show="!todos.length">No ToDo!</p>
@@ -31,3 +34,9 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
+<!-- 
+    編集ボタンを押す
+    インプットタグに切り替わる/テキストは消える
+    Saveボタンを押すとTodoが更新
+-->

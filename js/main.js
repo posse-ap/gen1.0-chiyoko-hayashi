@@ -4,17 +4,11 @@
     var vm  = new Vue({
         el: '#app',
         data: {
-                newItem: '',
-                todos: [{
-                    title: 'task 1',
-                    isDone: false
-                }, {
-                    title: 'task 2',
-                    isDone: false
-                }, {
-                    title: 'task 3',
-                    isDone: true
-                }]
+            newItem: '',
+            todos: [],
+            showEdit: false,
+            task: '',
+            editComment: ''
         },
         watch : {
             todos: {
@@ -24,6 +18,9 @@
                 },
                 deep: true
             }
+        },
+        mounted: function() {
+            this.todos = JSON.parse(localStorage.getItem('todos')) || [];
         },
         methods: {
             addItem: function() {
@@ -39,6 +36,31 @@
                     this.todos.splice(index, 1);
                 }
             },
+            showEditItem(index) {
+                // タスク編集欄が非表示なら表示させる
+                if (this.showEditItem === false) {
+                    this.showEditItem = true;
+                    // タスク編集欄が表示中なら非表示にする
+                } else if (this.showEditItem === true) {
+                    this.showEditItem = false;
+                }
+            },
+            // タスク編集メソッド
+            editItem(todo) {
+                if (this.editComment === '') {
+                    alert('タスクを入力してください');
+                    return
+                }
+                // どのテーブルを編集するか絞り込む
+                const targetIndex = this.todos.indexOf(todo);
+                // spliceでタスクを置換する
+                this.todos.splice(targetIndex, 1, {
+                    id: targetIndex,
+                    comment: this.editComment
+                })
+                // タスク入力後、inputを空にする
+                this.editComment = '';
+            },
             purge: function() {
                 if (!confirm('delete finished?')) {
                     return;
@@ -53,6 +75,5 @@
                 });
             }
         }
-    }
-    )
+    })
 })();
