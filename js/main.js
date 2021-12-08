@@ -38,8 +38,7 @@
                     this.todos.splice(index, 1);
                 }
             },
-            showEditItem: function(index) {
-                console.log(index);
+            showEditItem: function() {
                 // タスク編集欄が非表示なら表示させる
                 if (this.editItemIsShown === false) {
                     this.editItemIsShown = true;
@@ -49,18 +48,10 @@
                 }
             },
             // タスク編集メソッド
-            editItem: function(index) {
-                if (this.editComment === '') {
-                    alert('タスクを入力してください');
-                    return
-                }
-                // どのテーブルを編集するか絞り込む
-                const targetIndex = this.todos.indexOf(todo);
-                // spliceでタスクを置換する
-                this.todos.splice(targetIndex, 1, {
-                    id: targetIndex,
-                    comment: this.editComment
-                })
+            editItem: function() {
+                // console.log(this.editComment);
+                // console.log(this.title);
+                this.title = this.editComment;
                 // タスク入力後、inputを空にする
                 this.editComment = '';
             },
