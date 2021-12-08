@@ -48,12 +48,11 @@
                 }
             },
             // タスク編集メソッド
-            editItem: function() {
-                // console.log(this.editComment);
-                // console.log(this.title);
-                this.title = this.editComment;
-                // タスク入力後、inputを空にする
-                this.editComment = '';
+            editItem: function(index) {
+                // console.log(this.todos[index].title);
+                this.todos[index].title = this.todos[index].editComment;
+                this.todos[index].editComment = '';
+                this.todos[index].editItemIsShown = false;
             },
             purge: function() {
                 if (!confirm('delete finished?')) {

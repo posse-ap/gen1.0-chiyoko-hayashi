@@ -18,7 +18,7 @@
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.isDone">
                 <span :class="{done: todo.isDone}" >{{todo.title}}</span>
-                <form @submit.prevent="editItem">
+                <form @submit.prevent="editItem(index)">
                     <input type="text" v-model="todo.editComment" v-show="editItemIsShown">
                     <input type="submit" value="Save" v-show="editItemIsShown">
                 </form>
