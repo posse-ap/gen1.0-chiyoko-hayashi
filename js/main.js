@@ -6,9 +6,9 @@
         data: {
             newItem: '',
             todos: [],
-            showEdit: false,
             task: '',
-            editComment: ''
+            editComment: '',
+            editItemIsShown: false
         },
         watch : {
             todos: {
@@ -36,13 +36,13 @@
                     this.todos.splice(index, 1);
                 }
             },
-            showEditItem(index) {
+            showEditItem() {
                 // タスク編集欄が非表示なら表示させる
-                if (this.showEditItem === false) {
-                    this.showEditItem = true;
+                if (this.editItemIsShown === false) {
+                    this.editItemIsShown = true;
                     // タスク編集欄が表示中なら非表示にする
-                } else if (this.showEditItem === true) {
-                    this.showEditItem = false;
+                } else  {
+                    this.editItemIsShown = false;
                 }
             },
             // タスク編集メソッド
