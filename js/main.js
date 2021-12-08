@@ -6,7 +6,7 @@
     }
 
     class Ball {
-        // class Game内：this.ball = new Ball(this.canvas);
+        // Gameclass内：this.ball = new Ball(this.canvas);
         constructor(canvas) {
             this.canvas = canvas;
             this.ctx = this.canvas.getContext('2d');
@@ -132,8 +132,9 @@
         // コンストラクターに canvas が渡されるので、こちらで受けてあげて、プロパティに設定しつつ、描画コンテクストも設定しておきます。
         constructor(canvas) {
             this.canvas = canvas;
+            this.ball1 = new Ball(this.canvas);
+            this.ball2 = new Ball(this.canvas);
             this.ctx = this.canvas.getContext('2d');
-            this.ball = new Ball(this.canvas);
             this.paddle = new Paddle(this.canvas, this);
             // paddleっていうクラスに2つの変数を入れてインスタンスを生成している
             this.loop();
@@ -159,9 +160,11 @@
         }
         
         update() {
-            this.ball.update();
-            this.paddle.update(this.ball);
-            if (this.ball.getMissedStatus()) {
+            this.ball1.update();
+            this.ball2.update();
+            this.paddle.update(this.ball1);
+            this.paddle.update(this.ball2);
+            if (this.ball1.getMissedStatus() && this.ball2.getMissedStatus()) {
                 this.isGameOver = true;
             }
         }
@@ -172,7 +175,8 @@
                 return;
             }
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-            this.ball.draw();
+            this.ball1.draw();
+            this.ball2.draw();
             this.paddle.draw();
             this.drawScore();
         }
