@@ -26,7 +26,9 @@
             addItem: function() {
                 var item = {
                     title: this.newItem,
-                    isDone: false
+                    isDone: false,
+                    editComment: '',
+                    editItemIsShown: false
                 };
                 this.todos.push(item);
                 this.newItem = '';
@@ -36,7 +38,8 @@
                     this.todos.splice(index, 1);
                 }
             },
-            showEditItem() {
+            showEditItem: function(index) {
+                console.log(index);
                 // タスク編集欄が非表示なら表示させる
                 if (this.editItemIsShown === false) {
                     this.editItemIsShown = true;
@@ -46,7 +49,7 @@
                 }
             },
             // タスク編集メソッド
-            editItem(todo) {
+            editItem: function(index) {
                 if (this.editComment === '') {
                     alert('タスクを入力してください');
                     return

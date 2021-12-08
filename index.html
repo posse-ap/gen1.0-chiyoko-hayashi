@@ -16,12 +16,14 @@
         </h1>
         <ul>
             <li v-for="(todo, index) in todos">
-                <input type="checkbox" v-model="todo.isDone">
-                <span :class="{done: todo.isDone}">{{todo.title}}</span>
-                    <input type="text" v-model="editComment" :value="todo.title" v-show="editItemIsShown">
-                    <button @click="editItem()" v-show="editItemIsShown">Save</button>
+                <input type="checkbox" v-model="todo.isDone" v-show="!editItemIsShown">
+                <span :class="{done: todo.isDone}" v-show="!editItemIsShown">{{todo.title}}</span>
+                <form action="">
+                    <input type="text" v-model="todo.title" value:="title"  v-show="editItemIsShown">
+                    <button @click="editItem(todo)" v-show="editItemIsShown">Save</button>
+                </form>
                 <span @click="deleteItem(index)" class="command">[x]</span>
-                <span @click="showEditItem()" class="command">[edit]</span>
+                <span @click="showEditItem(index)" class="command">[edit]</span>
             </li>
         </ul>
         <p v-show="!todos.length">No ToDo!</p>
