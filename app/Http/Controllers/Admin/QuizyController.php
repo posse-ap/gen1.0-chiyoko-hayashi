@@ -22,12 +22,12 @@ class QuizyController extends Controller
     return view('admin.edit',compact('questions'));
     }
 
-    public function editpost(Request $request, $question_id)
+    public function editpost(Request $request)
     {
-    $choices = BigQuestion::find($question_id)->choices;
+    // dd($request);
+    $choices = BigQuestion::find($request->big_question_id)->choices;
     foreach ($choices as $index => $choice) {
         $choice->name = $request->{'name'.$index};
-        // dd($request->valid);
         if ($index === intval($request->valid)) {
             $choice->valid = 1;
         } else {

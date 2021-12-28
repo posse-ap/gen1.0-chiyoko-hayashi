@@ -26,6 +26,7 @@
                     @endforeach
                 </ul>
                 <input type="submit" value="更新">
+                <input type="hidden" value="{{ $big_question->id }}" name="big_question_id">
             </form>
         </div>
         @endforeach
