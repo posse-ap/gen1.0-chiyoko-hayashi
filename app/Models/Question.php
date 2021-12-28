@@ -10,6 +10,7 @@ class Question extends Model
     {
         return $this->hasMany(BigQuestion::class);
     }
+    protected $fillable = ['name']; //保存したいカラム名
 
 
 }

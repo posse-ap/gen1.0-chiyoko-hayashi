@@ -19,6 +19,7 @@ class CreateBigQuestionsTable extends Migration
             $table->string('image');
             $table->string('sentence');
             $table->string('explanation');
+            $table->timestamps();
         });
     }
 

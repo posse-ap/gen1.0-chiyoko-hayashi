@@ -1,0 +1,12 @@
+/admin
+    →どっちのクイズか選ぶやつ
+
+/admin/{question_ id}
+    →大問一覧
+
+/admin/{question_ id}/{big_question_id}
+    →各問題の編集画面
+        ・問題の名前編集
+        ・選択肢名編集
+        ・選択肢の中でどれが答えか
+        ・画像追加、削除
