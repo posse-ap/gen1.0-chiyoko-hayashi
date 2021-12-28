@@ -45,8 +45,9 @@ class QuizyController extends Controller
     public function addquestionpost(Request $request){
         $name = $request->name;
         $question = new Question;
+        $question->name = $name;
         $question->save();
-
+        return redirect('/admin');
     }
     
     public function addbigquestion($big_question_id){
