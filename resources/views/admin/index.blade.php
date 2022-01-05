@@ -5,9 +5,10 @@
 
 @section('content')
 @foreach ($questions as $question)
-<a href="http://localhost/admin/edit/{{$question->id}}">{{$question->name}}</a>
-<a href="http://localhost/admin/edit/">編集</a>
-<a href="http://localhost/admin/edit/">削除</a>
+<p style="display: inline-block;">{{$question->name}}</p>
+<a href="http://localhost/admin/edit/title/{{$question->id}}">問題タイトル編集</a>
+<a href="http://localhost/admin/edit/{{$question->id}}">編集</a>
+<a href="http://localhost/admin/delete/question/{{$question->id}}">削除</a>
 <br>
 @endforeach
 @endsection
