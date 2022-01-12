@@ -16,15 +16,19 @@ class QuizyController extends Controller
     return view('admin.index',compact('questions'));
     }
 
-    public function edit($question_id)
+    public function editquestion($question_id)
     {
     $questions = Question::find($question_id);
     return view('admin.edit',compact('questions'));
     }
 
-    public function editpost(Request $request)
+    public function editquestionpost(Request $request ,$question_id)
     {
     // dd($request);
+    $question = BigQuestion::find($question_id);
+    $question->sentence = $request->sentence;
+    $question->explanation = $request->explanation;
+    $question->save();
     $choices = BigQuestion::find($request->big_question_id)->choices;
     foreach ($choices as $index => $choice) {
         $choice->name = $request->{'name'.$index};
@@ -35,6 +39,20 @@ class QuizyController extends Controller
         }
         $choice->save();
     }
+    return redirect('/admin');
+    }
+
+    public function editquestiontitle($question_id)
+    {
+    $question = Question::find($question_id);
+    return view('admin.editquestionname',compact('question'));
+    }
+
+    public function editquestiontitlepost(Request $request ,$question_id)
+    {
+    $question = Question::find($question_id);
+    $question->name = $request->question_name;
+    $question->save();
     return redirect('/admin');
     }
 
@@ -83,8 +101,18 @@ class QuizyController extends Controller
                 'valid' => intval($request->valid) === 3,
             ]),
         ]);
-        
-
         return redirect('/admin');
+    }
+
+    public function deletequestion($question_id){
+        $question = new Question;
+        $question->where('id', $question_id)->delete();
+        return redirect('/admin');
+    }
+
+    public function deletebigquestion($big_question_id){
+        $bigquestion = new BigQuestion;
+        $bigquestion->where('id', $big_question_id)->delete();
+        return back();
     }
 }
