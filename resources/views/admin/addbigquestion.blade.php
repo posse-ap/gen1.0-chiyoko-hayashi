@@ -7,7 +7,7 @@
             <h3 style="margin-bottom: 0; font-size: 16px;">問題の画像</h3>
             <input type="file" name="file">
             <h3 style="margin-bottom: 0; font-size: 16px;">問題文</h3>
-            <input type="text" name="sentence">>
+            <input type="text" name="sentence">
             <table>
                 <tr>
                     <th>選択肢</th>
