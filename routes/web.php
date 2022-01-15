@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('quiz', 'QuestionsController@index')->name('questions');
 Route::get('quiz/{id}', 'QuestionsController@show')->name('choices');
 
-Auth::routes();;
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
