@@ -1,5 +1,4 @@
 window._ = require('lodash');
-require('jquery-ui/ui/widgets/dialog.js');
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -11,6 +10,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('jquery-ui/ui/widgets/sortable.js');
 } catch (e) {}
 
 /**

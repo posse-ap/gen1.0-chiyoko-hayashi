@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./sort.js');
 
 window.Vue = require('vue');
 

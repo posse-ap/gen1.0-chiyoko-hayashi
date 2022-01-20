@@ -4,13 +4,22 @@
 <a href="http://localhost/admin/add/question">追加</a>
 
 @section('content')
-@foreach ($questions as $question)
-<p style="display: inline-block;">{{$question->name}}</p>
-<a href="http://localhost/admin/edit/title/{{$question->id}}">問題タイトル編集</a>
-<a href="http://localhost/admin/edit/{{$question->id}}">編集</a>
-<a href="http://localhost/admin/delete/question/{{$question->id}}">削除</a>
-<br>
-@endforeach
+    <ul class="sortable">
+        @foreach ($questions as $question)
+            <li id="{{$question->id}}">
+                <p style="display: inline-block;">{{$question->name}}</p>
+                <a href="http://localhost/admin/edit/title/{{$question->id}}">問題タイトル編集</a>
+                <a href="http://localhost/admin/edit/{{$question->id}}">編集</a>
+                <a href="http://localhost/admin/delete/question/{{$question->id}}">削除</a>
+            </li>
+        @endforeach
+    </ul>
+    <form action="/admin/savesort" method="post">
+        @csrf
+        <input type="hidden" id="list-ids" name="list-ids" />
+        <button id="submit">更新</button>
+    </form>
+    <script src="{{ mix('js/sort.js') }}"></script>
 @endsection
 @section('footer')
 copyright 2020 tuyano..
