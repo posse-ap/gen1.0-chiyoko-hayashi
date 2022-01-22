@@ -19,6 +19,7 @@
         <input type="hidden" id="list-ids" name="list-ids" />
         <button id="submit">更新</button>
     </form>
+    <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ mix('js/sort.js') }}"></script>
 @endsection
 @section('footer')
