@@ -36,5 +36,7 @@ Route::get('/admin/delete/big_question/{big_question_id}', 'Admin\QuizyControlle
 Route::post('/admin/delete/big_question/{big_question_id}', 'Admin\QuizyController@deletebigquestion');
 Route::get('admin/edit/title/{question_id}', 'Admin\QuizyController@editquestiontitle');
 Route::post('admin/edit/title/{question_id}', 'Admin\QuizyController@editquestiontitlepost');
+Route::post('/admin/big_question/savesort/', 'Admin\QuizyController@bigQuestionSavesort');
+Route::post('/admin/question/savesort/{big_question_id}', 'Admin\QuizyController@questionSavesort');
 // Route::get('/admin/{id}/edit?choices_id=1', 'Q/Admin/uizController@index')->name('home');
 // Route::get('/complete', '/Admin/QuizController@index')->name('home');

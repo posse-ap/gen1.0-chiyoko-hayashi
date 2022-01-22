@@ -2,8 +2,8 @@ $(function() {
     $(".sortable").sortable();
     $("#submit").on('click', function() {
         var listIds = $(".sortable").sortable("toArray");
-        $("#list-ids").val(listIds);
-        $("form").submit();
+        $("#listids").val(listIds);
+        // $("form").submit();
     });
 });
 

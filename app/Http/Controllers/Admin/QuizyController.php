@@ -12,7 +12,7 @@ class QuizyController extends Controller
 {
     public function index(Request $request)
     {
-    $questions = question::all();
+    $questions = Question::orderBy('sort')->get();
     return view('admin.index',compact('questions'));
     }
 
@@ -111,6 +111,30 @@ class QuizyController extends Controller
     }
 
     public function deletebigquestion($big_question_id){
+        $bigquestion = new BigQuestion;
+        $bigquestion->where('id', $big_question_id)->delete();
+        return back();
+    }
+
+    public function bigQuestionSavesort(Request $request) {
+        // dd($request->listids);
+
+        // 2, 3, 4, 5, 1
+        $list = explode(',', $request->listids);
+        // dd($list);
+
+        //ID   2, 3, 4, 5, 1
+        //SORT 0, 1, 2, 3, 4  
+        foreach ($list as $index => $value) {
+            $question = Question::find($value);
+            $question->sort = $index;
+            $question->save();
+        }
+        return redirect('/admin');
+    }
+
+
+    public function questionSavesort($big_question_id){
         $bigquestion = new BigQuestion;
         $bigquestion->where('id', $big_question_id)->delete();
         return back();

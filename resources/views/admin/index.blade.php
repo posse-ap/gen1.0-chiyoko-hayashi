@@ -14,10 +14,10 @@
             </li>
         @endforeach
     </ul>
-    <form action="/admin/savesort" method="post">
+    <form action="admin/big_question/savesort" method="post">
         @csrf
-        <input type="hidden" id="list-ids" name="list-ids" />
-        <button id="submit">更新</button>
+        <input type="hidden" id="listids" name="listids">
+        <button id="submit">順序を更新</button>
     </form>
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ mix('js/sort.js') }}"></script>
