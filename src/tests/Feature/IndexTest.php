@@ -17,12 +17,17 @@ class IndexTest extends TestCase
      */
     public function testExample()
     {
-        $response = $this->get('/');
-        // $value = '東京の難読地名クイズ';
-        // $response->assertSee($value);
-        // $response->assertStatus(200);
-        // parent::testExample();
-        factory(BigQuestion::class)->create();
-        $response->assertSee("Merlin Gorczany");
+        // ダミーデータ作成
+            factory(BigQuestion::class)->create();
+
+        // IndexTest.phpにfactory(BigQuestion::class)->create()を追記し、
+        // ダミーレコードのnameカラムの値が「/」にアクセスした時のレスポンスに含まれている事を確認するテストコードを追記して下さい。
+        // テストを実行して、全てOKになる事を確認して下さい。
+            $response = $this->get('/');
+            $names = BigQuestion::pluck('name');
+            foreach ( $names as $name ) {
+                $response->assertSee($name);
+            }
     }
+
 }
