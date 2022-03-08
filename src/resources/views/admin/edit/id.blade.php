@@ -25,6 +25,7 @@
                             type="text"
                             name="name{{ $loop->index }}"
                             value="{{ $choice->name }}"
+                            maxlength="20"
                         >
                     </td>
                     <td>
