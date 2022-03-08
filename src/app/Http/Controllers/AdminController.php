@@ -38,6 +38,9 @@ class AdminController extends Controller
 
     public function editIndex($id) {
         $question = Question::find($id);
+        if (is_null($question)) {
+            abort(404);
+        }
         return view('admin.edit.id', compact('question'));
     }
 
