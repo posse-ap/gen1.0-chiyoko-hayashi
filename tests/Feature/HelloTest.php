@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\User;
+use App\Person;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -19,19 +20,32 @@ class HelloTest extends TestCase
      */
     public function testHello()
     {
-        $this->assertTrue(true);
+        // ダミーで利用するデータ
+        factory(User::class)->create([
+            'name' => 'AAA',
+            'email' => 'BBB@CCC.com',
+            'password' => 'ABCABC',
+        ]);
+        factory(User::class, 10)->create();
 
-        $response = $this->get('/');
-        $response->assertStatus(200);
+        $this->assertDatabaseHas('users', [
+            'name' => 'AAA',
+            'email' => 'BBB@CCC.com',
+            'password' => 'ABCABC',
+        ]);
 
-        $responce = $this->get('/hello');
-        $response->assertStatus(302);
+        // ダミーで利用するデータ
+        factory(Person::class)->create([
+            'name' => 'AAA',
+            'mail' => 'BBB@CCC.com',
+            'age' => '19',
+        ]);
+        factory(Person::class, 10)->create();
 
-        $user = factory(User::class)->create();
-        $response = $this->actingAs($user)->get('/hello');
-        $response->assertStatus(200);
-
-        $response = $this->get('/no_route');
-        $response->assertStatus(404);
+        $this->assertDatabaseHas('people', [
+            'name' => 'AAA',
+            'mail' => 'BBB@CCC.com',
+            'age' => '20',
+        ]);
     }
 }
