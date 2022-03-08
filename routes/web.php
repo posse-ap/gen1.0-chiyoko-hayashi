@@ -69,3 +69,6 @@ Route::resource('rest', 'RestappController');
 
 //リスト7-12
 Route::get('hello/rest', 'HelloController@rest');
+
+//リスト7-5
+Route::get('hello', 'HelloController@index')->middleware('auth');
