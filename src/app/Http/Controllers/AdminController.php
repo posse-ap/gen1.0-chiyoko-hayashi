@@ -8,6 +8,7 @@ use App\AdminUser;
 use App\Question;
 use App\BigQuestion;
 use App\Choice;
+use App\Http\Requests;
 
 class AdminController extends Controller
 {
@@ -45,7 +46,11 @@ class AdminController extends Controller
     }
 
     public function edit(Request $request, $id) {
-        $choices = Question::find($id)->choices;
+        $question = Question::find($id);
+        if (is_null($question)) {
+            abort(404);
+        }
+        $choices = $question->choices;
         foreach ($choices as $index => $choice) {
             $choice->name = $request->{'name'.$index};
             if ($index === intval($request->valid)) {
