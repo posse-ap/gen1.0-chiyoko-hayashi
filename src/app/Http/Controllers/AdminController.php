@@ -52,10 +52,10 @@ class AdminController extends Controller
         }
         $choices = $question->choices;
         $request->validate([
-            'name0' => 'required',
-            'name1' => 'required',
-            'name2' => 'required',
-            'valid' => 'required',
+            'name0' => 'required||string|max:20',
+            'name1' => 'required|string|max:20',
+            'name2' => 'required|string|max:20',
+            'valid' => 'required|in:0,1,2',
         ]);
         foreach ($choices as $index => $choice) {
             $choice->name = $request->{'name'.$index};
