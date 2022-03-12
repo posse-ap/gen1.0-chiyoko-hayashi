@@ -8,7 +8,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: '環境の起動とテスト'
+      - name: '環境の起動'
         run: | 
           docker-compose up -d
           while ! docker-compose exec -T db mysqladmin ping --host=127.0.0.1 --user=laravel --password=password --silent; do
@@ -18,4 +18,7 @@ jobs:
           cp src/.env.example src/.env
           docker-compose exec -T app composer install
           docker-compose exec -T app php artisan key:generate
-          docker-compose exec -T app php vendor/bin/phpunit
+      - name: 'テストの実行'
+          docker exec -it testpractice-app-1 bash
+          vendor/bin/phpunit
+          exit
