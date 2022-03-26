@@ -37,5 +37,15 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'generation' => 2,
         ]);
+
+        User::create([
+            'family_name' => 'hayashi',
+            'first_name' => 'chiyoko',
+            'family_name_hira' => 'はやし',
+            'first_name_hira' => 'ちよこ',
+            'email' => 'chiyoko.chocochick@gmail.com',
+            'password' => Hash::make('password'),
+            'generation' => 1,
+        ]);
     }
 }

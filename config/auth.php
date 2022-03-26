@@ -114,4 +114,10 @@ return [
 
     'password_timeout' => 10800,
 
+
+    'admin' => [
+        'driver' => 'session',
+        'provider' => 'admins'
+    ],
+
 ];

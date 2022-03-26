@@ -124,6 +124,6 @@ class HomeController extends Controller
                 'status' => $twitter_text . PHP_EOL . '#twitteroauth'
             ]);
         }
-        // return redirect('home');
+        return redirect('home');
     }
 }
