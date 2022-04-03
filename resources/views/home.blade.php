@@ -10,12 +10,15 @@
 </head>
 <body>
   <header class="header">
-    <div class="d-lg-flex header-container mx-auto">
+    <div class="d-lg-flex header-container mx-auto justify-content-between">
       <div class="d-flex">
         <img src="/img/header-logo.png" class="header-img pr-3">
-        <p class="header-text my-auto">{{ $header_week }}th week</p>
+        <p class="header-text my-auto">{{ $header_week }} week</p>
       </div>
-      <button class="post-btn mr-0 ml-auto my-auto d-none d-lg-block" data-toggle="modal" data-target="#modalPost">記録・投稿</button>
+      <div class="d-flex">
+        <button class="post-btn mr-0 ml-auto my-auto d-none d-lg-block" data-toggle="modal" data-target="#modalPost">記録・投稿</button>
+        <a href="{{ route('news') }}" class="post-btn mr-0 ml-auto my-auto d-none d-lg-block text-decoration-none">news</a></button>
+      </div>
     </div>
   </header>
 

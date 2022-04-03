@@ -30,6 +30,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/news',  [HomeController::class, 'news'])->name("news");
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/api/columntime', [ApiController::class, 'columntime']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/api/pielanguage', [ApiController::class, 'pielanguage']);

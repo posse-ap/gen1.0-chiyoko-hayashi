@@ -10,6 +10,7 @@ use App\Models\ContentPost;
 use App\Models\Language;
 use App\Models\Content;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 class HomeController extends Controller
@@ -125,5 +126,11 @@ class HomeController extends Controller
             ]);
         }
         return redirect('home');
+    }
+
+    public function news(){
+        $news = HTTP::get("https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default/news");
+        $news = json_decode($news->getBody(), true);
+        return view('news', compact('news'));
     }
 }
