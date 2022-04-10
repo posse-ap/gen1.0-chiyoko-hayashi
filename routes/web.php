@@ -31,10 +31,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/news',  [HomeController::class, 'news'])->name("news");
+Route::post('/post',  [HomeController::class, 'post'])->name("post");
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/api/columntime', [ApiController::class, 'columntime']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/api/pielanguage', [ApiController::class, 'pielanguage']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/api/piecontent', [ApiController::class, 'piecontent']);
-

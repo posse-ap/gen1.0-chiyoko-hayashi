@@ -97,13 +97,23 @@
 
   <!-- modal main -->
   <div class="modal fade" id="modalPost" tab-index="-1" aria-hidden="true">
+            <input id="contents1" type="checkbox" value="1" name="contents[]">
+            <input id="contents2" type="checkbox" value="2" name="contents[]">
+            <input id="contents3" type="checkbox" value="3" name="contents[]">
+            <input id="language1" type="checkbox" value="1" name="languages[]">
+            <input id="language2" type="checkbox" value="2" name="languages[]">
+            <input id="language3" type="checkbox" value="3" name="languages[]">
+            <input id="language4" type="checkbox" value="4" name="languages[]">
+            <input id="language5" type="checkbox" value="5" name="languages[]">
+            <input id="language6" type="checkbox" value="6" name="languages[]">
+            <input id="language7" type="checkbox" value="7" name="languages[]">
+            <input id="language8" type="checkbox" value="8" name="languages[]">
     <div class="modal-dialog">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <div class="modal-container">
-          <form action="" method="POST">
             @csrf
             <div class="form-group d-lg-flex justify-content-between">
               <div class="modal-left-parts">
@@ -219,8 +229,8 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading" data-toggle="modal" data-target="#modalLoading">記録・投稿</button>
-          </form>
+            <!-- <button type="submit" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading" data-toggle="modal" data-target="#modalLoading">記録・投稿</button> -->
+            <button type="button" class="post-btn d-block mx-auto mt-3 mb-4" id="to-modalLoading">記録・投稿</button>
         </div>
       </div>
     </div>
@@ -284,7 +294,7 @@
 
   <!-- modal success -->
   <div class="modal fade" id="modalSuccess" tab-index="-1" aria-hidden="true">
-    <div class="modal-dialog modal-success-dialog">
+    <div class="modal-dialog">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -298,38 +308,31 @@
     </div>
   </div>
   <!-- modal success -->
+
+    <!-- modal error -->
+    <div class="modal fade" id="modalError" tab-index="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-container text-center">
+          <p class="error-color">ERROR!</p>
+          <span class="error-color modal-error-mark"></span>
+          <p class="error-text">一時的にご利用できない状態です。<br>しばらく経ってから<br>再度アクセスしてください</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal error -->
   
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="{{ asset('/js/main.js') }}"></script>
   <script src="{{ asset('/js/calendar.js') }}"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-  <script>
-  $(function(){
-    $('#to-modalLoading').on('click', function(){
-      $.ajax({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        type: 'POST',
-        url: '/home',
-        dataType: 'json'
-      })
-      .then(
-        //成功したとき
-        function(data){
-          console.log('成功！');
-          console.log(data);
-        },
-        function(){
-          location.href = '/error';
-        }
-      )
-    })
-  })
-  </script>
 
   <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});

@@ -30,21 +30,43 @@
     displayThisMonth();
   });
 
-  const toModalLoading = document.getElementById('to-modalLoading');
+  // const toModalLoading = document.getElementById('to-modalLoading');
 
-  toModalLoading.addEventListener('click', ()=>{
-    $('#modalPost').modal('hide');
-    $('#modalLoading').modal('show');
+  // toModalLoading.addEventListener('click', ()=>{
+  //   $('#modalPost').modal('hide');
+  //   $('#modalLoading').modal('show');
 
-    setTimeout(function(){
-      toModalSuccess();
-    }, 2000)
+  //   setTimeout(function(){
+  //     toModalSuccess();
+  //   }, 2000)
+  // })
+
+  // function toModalSuccess(){
+  //   $('#modalLoading').modal('hide');
+  //   $('#modalSuccess').modal('show');
+  // }
+
+  $(function(){
+    $('#to-modalLoading').on('click', function(){
+      // alert("hogehoge");
+      $('#modalPost').modal('hide');
+      $('#modalLoading').modal('show');
+      $.ajax({
+        headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        type: 'POST',
+        url: '/post',
+        data: $("#modalPost").serialize() //ここでシリアライズ
+      }).done(function(data1,textStatus,jqXHR){
+        $('#modalLoading').modal('hide');
+        $('#modalSuccess').modal('show');
+      }).fail(function(jqXHR, textStatus, errorThrown ){
+        $('#modalLoading').modal('hide');
+        $('#modalError').modal('show');
+      });
+    })
   })
-
-  function toModalSuccess(){
-    $('#modalLoading').modal('hide');
-    $('#modalSuccess').modal('show');
-  }
 
   let contentsExpanded = false;
   const contentsSelectBox = document.getElementById('modal-contents-select-box');
